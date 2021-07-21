@@ -39,6 +39,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B31C2BA326A815F100D2FCDC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B39988D726A59D2700B19B14 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B31C2BA426A8160100D2FCDC /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B39988D526A59D2700B19B14 /* GameViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B31C2BA526A8160F00D2FCDC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B31C2BA126A809B000D2FCDC /* GameModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		B39988C526A59D2700B19B14 = {
 			isa = PBXGroup;
 			children = (
@@ -60,12 +84,12 @@
 			children = (
 				B39988D126A59D2700B19B14 /* AppDelegate.swift */,
 				B39988D326A59D2700B19B14 /* SceneDelegate.swift */,
-				B39988D726A59D2700B19B14 /* Main.storyboard */,
-				B39988D526A59D2700B19B14 /* GameViewController.swift */,
+				B31C2BA526A8160F00D2FCDC /* Model */,
+				B31C2BA326A815F100D2FCDC /* View */,
+				B31C2BA426A8160100D2FCDC /* Controller */,
 				B39988DA26A59D2900B19B14 /* Assets.xcassets */,
 				B39988DC26A59D2900B19B14 /* LaunchScreen.storyboard */,
 				B39988DF26A59D2900B19B14 /* Info.plist */,
-				B31C2BA126A809B000D2FCDC /* GameModel.swift */,
 			);
 			path = imamooKadai6;
 			sourceTree = "<group>";
