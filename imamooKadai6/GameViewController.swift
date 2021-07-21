@@ -11,36 +11,30 @@ class GameViewController: UIViewController {
     @IBOutlet private weak var randomNumberLabel: UILabel!
     @IBOutlet private weak var guessSlider: UISlider!
 
-    private var randomNumber = 1
-    private var guessNumber = 1
+    var gameModel = GameModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setRandomNumberLabel()
+        gameModel.setRandomNumber()
+        randomNumberLabel.text = String(gameModel.randomNumber)
         guessSlider.value = (guessSlider.maximumValue + guessSlider.minimumValue) / 2
     }
 
     @IBAction private func judgementButtonPressed(_ sender: UIButton) {
-        let isMatch = judgeMatch()
-        aleartResult(isMatch)
+        gameModel.guessNumber = Int(guessSlider.value)
+        aleartResult(gameModel.isMatch())
     }
     
     private func setRandomNumberLabel() {
-        randomNumber = Int.random(in: 1...100)
-        randomNumberLabel.text = String(randomNumber)
+        
     }
-    
-    private func judgeMatch() -> Bool {
-        guessNumber = Int(guessSlider.value)
-        return randomNumber == guessNumber
-    }
-    
+
     private func aleartResult(_ isMatch: Bool) {
-        let message = (isMatch ? "あたり!" : "はずれ!") + "\nあなたの値: \(guessNumber)"
-        let alert = UIAlertController(title: "結果", message: message, preferredStyle: .alert)
+        let alert = UIAlertController(title: "結果", message: gameModel.message, preferredStyle: .alert)
         alert.addAction(
             UIAlertAction(title: "再挑戦", style: .default, handler: {action in
-                self.setRandomNumberLabel()
+                self.gameModel.setRandomNumber()
+                self.randomNumberLabel.text = String(self.gameModel.randomNumber)
             })
         )
         present(alert, animated: true, completion: nil)
