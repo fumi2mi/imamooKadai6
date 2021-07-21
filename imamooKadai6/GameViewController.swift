@@ -11,8 +11,8 @@ class GameViewController: UIViewController {
     @IBOutlet private weak var randomNumberLabel: UILabel!
     @IBOutlet private weak var guessSlider: UISlider!
 
-    private var randomNumber = 50
-    private var guessNumber = 50
+    private var randomNumber = 1
+    private var guessNumber = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,17 +31,13 @@ class GameViewController: UIViewController {
     }
     
     private func judgeMatch() -> Bool {
-        guard let randomNumber = Int(randomNumberLabel.text ?? "") else {
-            return false
-        }
         guessNumber = Int(guessSlider.value)
         return randomNumber == guessNumber
     }
     
     private func aleartResult(_ isMatch: Bool) {
-        let title = "結果"
         let message = (isMatch ? "あたり!" : "はずれ!") + "\nあなたの値: \(guessNumber)"
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let alert = UIAlertController(title: "結果", message: message, preferredStyle: .alert)
         alert.addAction(
             UIAlertAction(title: "再挑戦", style: .default, handler: {action in
                 self.setRandomNumberLabel()
