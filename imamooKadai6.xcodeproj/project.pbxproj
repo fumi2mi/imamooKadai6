@@ -39,14 +39,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		B31C2BA326A815F100D2FCDC /* View */ = {
-			isa = PBXGroup;
-			children = (
-				B39988D726A59D2700B19B14 /* Main.storyboard */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		B31C2BA426A8160100D2FCDC /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -61,6 +53,14 @@
 				B31C2BA126A809B000D2FCDC /* GameModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		B31C2BA626A817DC00D2FCDC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B39988D726A59D2700B19B14 /* Main.storyboard */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		B39988C526A59D2700B19B14 = {
@@ -85,7 +85,7 @@
 				B39988D126A59D2700B19B14 /* AppDelegate.swift */,
 				B39988D326A59D2700B19B14 /* SceneDelegate.swift */,
 				B31C2BA526A8160F00D2FCDC /* Model */,
-				B31C2BA326A815F100D2FCDC /* View */,
+				B31C2BA626A817DC00D2FCDC /* View */,
 				B31C2BA426A8160100D2FCDC /* Controller */,
 				B39988DA26A59D2900B19B14 /* Assets.xcassets */,
 				B39988DC26A59D2900B19B14 /* LaunchScreen.storyboard */,
@@ -104,6 +104,7 @@
 				B39988CA26A59D2700B19B14 /* Sources */,
 				B39988CB26A59D2700B19B14 /* Frameworks */,
 				B39988CC26A59D2700B19B14 /* Resources */,
+				B31C2BA726A8196A00D2FCDC /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -158,6 +159,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B31C2BA726A8196A00D2FCDC /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"SwiftLint does not exist, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B39988CA26A59D2700B19B14 /* Sources */ = {

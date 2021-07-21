@@ -12,7 +12,7 @@ class GameViewController: UIViewController {
     @IBOutlet private weak var guessSlider: UISlider!
 
     var gameModel = GameModel()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         gameModel.setRandomNumber()
@@ -24,15 +24,11 @@ class GameViewController: UIViewController {
         gameModel.guessNumber = Int(guessSlider.value)
         aleartResult(gameModel.isMatch())
     }
-    
-    private func setRandomNumberLabel() {
-        
-    }
 
     private func aleartResult(_ isMatch: Bool) {
         let alert = UIAlertController(title: "結果", message: gameModel.message, preferredStyle: .alert)
         alert.addAction(
-            UIAlertAction(title: "再挑戦", style: .default, handler: {action in
+            UIAlertAction(title: "再挑戦", style: .default, handler: {_ in
                 self.gameModel.setRandomNumber()
                 self.randomNumberLabel.text = String(self.gameModel.randomNumber)
             })
@@ -40,4 +36,3 @@ class GameViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
 }
-
