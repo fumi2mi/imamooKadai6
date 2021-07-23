@@ -21,18 +21,24 @@ class GameViewController: UIViewController {
     }
 
     @IBAction private func judgementButtonPressed(_ sender: UIButton) {
-        gameModel.guessNumber = Int(guessSlider.value)
-        aleartResult(gameModel.isMatch())
+        let guessNumber = Int(guessSlider.value)
+        let result = gameModel.isMatch(guessNumber: guessNumber)
+        let firstLine = result ? "あたり!" : "はずれ!"
+        aleartResult(message: "\(firstLine)\nあなたの値: \(guessNumber)")
     }
 
-    private func aleartResult(_ isMatch: Bool) {
-        let alert = UIAlertController(title: "結果", message: gameModel.message, preferredStyle: .alert)
+    private func aleartResult(message: String) {
+        let alert = UIAlertController(title: "結果", message: message, preferredStyle: .alert)
         alert.addAction(
-            UIAlertAction(title: "再挑戦", style: .default, handler: {_ in
-                self.gameModel.setRandomNumber()
-                self.randomNumberLabel.text = String(self.gameModel.randomNumber)
+            UIAlertAction(title: "再挑戦", style: .default, handler: { [weak self] _ in
+                self?.retry()
             })
         )
         present(alert, animated: true, completion: nil)
+    }
+    
+    private func retry() {
+        gameModel.setRandomNumber()
+        randomNumberLabel.text = String(gameModel.randomNumber)
     }
 }
