@@ -8,17 +8,13 @@
 import Foundation
 
 struct GameModel {
-    var randomNumber = 1
-    var guessNumber = 1
-    var message: String {
-        return (isMatch() ? "あたり!\n" : "はずれ!\n") + "あなたの値: \(guessNumber)"
-    }
+    private(set) var randomNumber = 1
 
     mutating func setRandomNumber() {
         randomNumber = Int.random(in: 1...100)
     }
 
-    func isMatch() -> Bool {
+    func isMatch(guessNumber: Int) -> Bool {
         return randomNumber == guessNumber
     }
 }
